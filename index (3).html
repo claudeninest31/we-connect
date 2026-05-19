@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WE CONNECT — Jewe na Wewe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark-navy: #0d1b2a;
+      --deep-teal: #1a3a4a;
+      --forest-green: #1b5e3b;
+      --emerald: #2d8653;
+      --mint: #4caf82;
+      --light-mint: #a8d8c0;
+      --cream: #f5f7f2;
+      --white: #ffffff;
+      --accent-gold: #c8b560;
+      --text-dark: #0d1b2a;
+      --text-mid: #3a5068;
+      --text-light: #7a9ab0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─────────────────────────────────── */
+    header {
+      background: var(--dark-navy);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid var(--emerald);
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--mint); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--light-mint);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--mint); }
+
+    .nav-cta {
+      background: var(--emerald);
+      color: var(--white) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { background: var(--mint); color: var(--dark-navy) !important; }
+
+    /* ─── HERO ────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--dark-navy) 0%, var(--deep-teal) 50%, var(--forest-green) 100%);
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 20%, rgba(77,175,130,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(45,134,83,0.1) 0%, transparent 50%);
+    }
+
+    /* Decorative circles */
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgba(77,175,130,0.12);
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(77,175,130,0.15);
+      border: 1px solid var(--mint);
+      color: var(--mint);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .hero-title .green { color: var(--mint); }
+
+    .hero-subtitle {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      color: var(--light-mint);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    .btn-primary {
+      background: var(--emerald);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-primary:hover { background: var(--mint); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--mint); background: rgba(77,175,130,0.08); }
+
+    /* Hero right — value grid */
+    .hero-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      animation: fadeUp 0.6s 0.5s ease both;
+    }
+
+    .value-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(77,175,130,0.2);
+      border-radius: 16px;
+      padding: 1.5rem;
+      backdrop-filter: blur(8px);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .value-card:hover {
+      border-color: var(--mint);
+      background: rgba(77,175,130,0.1);
+    }
+
+    .value-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .value-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .value-desc {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    /* ─── SECTION WRAPPER ─────────────────────────── */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--emerald);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--dark-navy);
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .section-header {
+      margin-bottom: 3rem;
+    }
+
+    /* ─── SERVICES ────────────────────────────────── */
+    #services {
+      background: var(--white);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      background: var(--cream);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+      cursor: default;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--emerald);
+      border-radius: 4px 0 0 4px;
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(29,94,59,0.1);
+      transform: translateY(-3px);
+    }
+    .service-card:hover::before { transform: scaleY(1); }
+
+    .service-card.featured {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--forest-green), var(--deep-teal));
+      color: var(--white);
+    }
+    .service-card.featured::before { background: var(--mint); }
+
+    .service-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 1.25rem;
+    }
+    .service-card.featured .service-num { color: var(--light-mint); }
+
+    .service-icon-wrap {
+      width: 48px;
+      height: 48px;
+      background: var(--white);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.3rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .service-card.featured .service-icon-wrap {
+      background: rgba(255,255,255,0.15);
+      box-shadow: none;
+    }
+
+    .service-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--dark-navy);
+      margin-bottom: 0.6rem;
+    }
+    .service-card.featured .service-name { color: var(--white); }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    .service-card.featured .service-desc { color: rgba(255,255,255,0.7); }
+
+    .service-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .service-tag {
+      background: rgba(45,134,83,0.1);
+      border: 1px solid rgba(45,134,83,0.2);
+      color: var(--emerald);
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+    }
+    .service-card.featured .service-tag {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.2);
+      color: var(--white);
+    }
+
+    /* ─── HOW IT WORKS ────────────────────────────── */
+    #how {
+      background: var(--dark-navy);
+    }
+
+    #how .section-title { color: var(--white); }
+    #how .section-desc { color: rgba(255,255,255,0.55); }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .step {
+      background: rgba(255,255,255,0.03);
+      padding: 2.5rem 1.75rem;
+      position: relative;
+      transition: background 0.3s;
+    }
+    .step:hover { background: rgba(77,175,130,0.08); }
+
+    .step-number {
+      font-family: 'Syne', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: rgba(77,175,130,0.15);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.04em;
+    }
+
+    .step-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+
+    .step-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--white);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .step-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+    }
+
+    /* ─── WHY US ──────────────────────────────────── */
+    #why { background: var(--cream); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .why-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .why-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .why-dot {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      background: linear-gradient(135deg, var(--forest-green), var(--emerald));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .why-text h4 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--dark-navy);
+      margin-bottom: 0.3rem;
+    }
+
+    .why-text p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* Stats block */
+    .stats-block {
+      background: var(--dark-navy);
+      border-radius: 24px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      overflow: hidden;
+    }
+
+    .stat {
+      padding: 2rem;
+      background: rgba(255,255,255,0.03);
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--mint);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    .stat-motto {
+      grid-column: 1 / -1;
+      padding: 1.5rem 2rem;
+      background: rgba(77,175,130,0.08);
+      border-top: 1px solid rgba(77,175,130,0.15);
+      text-align: center;
+    }
+
+    .stat-motto p {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--mint);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── CONTACT ─────────────────────────────────── */
+    #contact {
+      background: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .contact-card {
+      background: var(--cream);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 20px;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      transition: box-shadow 0.3s, transform 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .contact-card:hover {
+      box-shadow: 0 8px 32px rgba(29,94,59,0.1);
+      transform: translateY(-2px);
+    }
+
+    .contact-icon {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .contact-icon.whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
+    .contact-icon.email { background: linear-gradient(135deg, var(--forest-green), var(--deep-teal)); }
+
+    .contact-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-value {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--dark-navy);
+    }
+
+    /* ─── FOOTER ──────────────────────────────────── */
+    footer {
+      background: var(--dark-navy);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-brand {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+    .footer-brand span { color: var(--mint); }
+
+    .footer-info {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.08em;
+    }
+
+    .footer-email {
+      background: rgba(77,175,130,0.12);
+      border: 1px solid rgba(77,175,130,0.25);
+      color: var(--mint);
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .footer-email:hover { background: rgba(77,175,130,0.25); }
+
+    /* ─── ANIMATIONS ──────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── HAMBURGER (mobile) ──────────────────────── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 4rem 1.5rem;
+      }
+      .hero-values { grid-template-columns: 1fr 1fr; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card.featured { grid-column: 1; }
+
+      .steps-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .why-grid { grid-template-columns: 1fr; }
+      .stats-block { grid-template-columns: 1fr 1fr; }
+
+      .contact-grid { grid-template-columns: 1fr; }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-values { grid-template-columns: 1fr; }
+      .steps-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────────────── -->
+  <header>
+    <nav>
+      <div class="nav-logo">WE <span>CONNECT</span></div>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#how">Comment ça marche</a></li>
+        <li><a href="#why">Pourquoi nous</a></li>
+        <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu(this)">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ─── HERO ─────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">✦ Burundi — Solutions Numériques Fiables</div>
+        <h1 class="hero-title">WE<br><span class="green">CONNECT</span></h1>
+        <p class="hero-subtitle">Jewe na Wewe</p>
+        <p class="hero-desc">
+          Acheteur et Vendeur, connectés. Nous simplifions votre accès
+          aux outils numériques fiables, adaptés à votre réalité locale.
+        </p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-primary">Nos services ↓</a>
+          <a href="#contact" class="btn-outline">Nous contacter</a>
+        </div>
+      </div>
+      <div class="hero-values">
+        <div class="value-card">
+          <div class="value-icon">🔍</div>
+          <div class="value-title">Trouver</div>
+          <div class="value-desc">Ce qu'il vous faut, rapidement et facilement.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🛡️</div>
+          <div class="value-title">Confiance</div>
+          <div class="value-desc">Échanges sécurisés, toujours.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">💬</div>
+          <div class="value-title">Communiquer</div>
+          <div class="value-desc">Facilement et à la vitesse de vos besoins.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">💳</div>
+          <div class="value-title">Transacter</div>
+          <div class="value-desc">En toute simplicité, en toute confiance.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ─────────────────────────────── -->
+  <div id="services" style="background: var(--white);">
+    <div class="section">
+      <div class="section-header reveal">
+        <div class="section-label">◆ Nos Services</div>
+        <h2 class="section-title">Ce que nous faisons<br>pour vous</h2>
+        <p class="section-desc">Des solutions pratiques pour votre quotidien numérique au Burundi et au-delà.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card reveal">
+          <div class="service-num">01 — LinkedIn</div>
+          <div class="service-icon-wrap">💼</div>
+          <div class="service-name">Assistance LinkedIn</div>
+          <div class="service-desc">Création, utilisation, monétisation et vérification KYC de votre profil professionnel.</div>
+          <div class="service-tags">
+            <span class="service-tag">Création</span>
+            <span class="service-tag">Monétisation</span>
+            <span class="service-tag">KYC</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal" style="transition-delay:0.1s">
+          <div class="service-num">02 — 1xBet</div>
+          <div class="service-icon-wrap">🎯</div>
+          <div class="service-name">Services 1xbet</div>
+          <div class="service-desc">Récupération de compte, déblocage d'argent, codes promo et assistance complète.</div>
+          <div class="service-tags">
+            <span class="service-tag">Récupération</span>
+            <span class="service-tag">Déblocage</span>
+            <span class="service-tag">Promo</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal" style="transition-delay:0.2s">
+          <div class="service-num">03 — Commerce</div>
+          <div class="service-icon-wrap">🤝</div>
+          <div class="service-name">Mise en Relation</div>
+          <div class="service-desc">Connexion entre acheteurs & vendeurs avec publicité promotionnelle et accompagnement.</div>
+          <div class="service-tags">
+            <span class="service-tag">Acheteurs</span>
+            <span class="service-tag">Vendeurs</span>
+            <span class="service-tag">Publicité</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal" style="transition-delay:0.3s">
+          <div class="service-num">04 — Technologie</div>
+          <div class="service-icon-wrap">💻</div>
+          <div class="service-name">Assistance IT</div>
+          <div class="service-desc">Accompagnement personnalisé à l'utilisation des nouvelles technologies numériques.</div>
+          <div class="service-tags">
+            <span class="service-tag">Formation</span>
+            <span class="service-tag">Support</span>
+            <span class="service-tag">Tech</span>
+          </div>
+        </div>
+
+        <div class="service-card featured reveal" style="transition-delay:0.4s">
+          <div class="service-num">05 — Solution Premium</div>
+          <div class="service-icon-wrap">⚡</div>
+          <div class="service-name">Solutions Numériques Personnalisées</div>
+          <div class="service-desc">Simplifiez vos fardeaux grâce à des outils numériques fiables, adaptés à votre réalité. Une solution sur mesure pour chaque besoin.</div>
+          <div class="service-tags">
+            <span class="service-tag">Sur mesure</span>
+            <span class="service-tag">Personnalisé</span>
+            <span class="service-tag">Fiable</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── HOW IT WORKS ──────────────────────────── -->
+  <div id="how" style="background: var(--dark-navy);">
+    <div class="section">
+      <div class="section-header reveal">
+        <div class="section-label" style="color: var(--mint);">◆ Comment ça marche</div>
+        <h2 class="section-title" style="color: var(--white);">Simple, rapide,<br>efficace.</h2>
+        <p class="section-desc" style="color: rgba(255,255,255,0.5)">En quelques étapes, nous transformons votre besoin en solution concrète.</p>
+      </div>
+      <div class="steps-row reveal">
+        <div class="step">
+          <div class="step-number">01</div>
+          <div class="step-icon">📞</div>
+          <div class="step-title">Contactez-nous</div>
+          <div class="step-desc">Par WhatsApp ou email, décrivez votre besoin en quelques mots.</div>
+        </div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <div class="step-icon">🎯</div>
+          <div class="step-title">On analyse</div>
+          <div class="step-desc">Nous identifions la meilleure solution adaptée à votre situation.</div>
+        </div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <div class="step-icon">⚙️</div>
+          <div class="step-title">On exécute</div>
+          <div class="step-desc">Nous agissons rapidement avec fiabilité et professionnalisme.</div>
+        </div>
+        <div class="step">
+          <div class="step-number">04</div>
+          <div class="step-icon">✅</div>
+          <div class="step-title">Résultat</div>
+          <div class="step-desc">Vous recevez votre solution. Satisfaction garantie.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── WHY US ────────────────────────────────── -->
+  <div id="why" style="background: var(--cream);">
+    <div class="section">
+      <div class="why-grid">
+        <div>
+          <div class="section-label reveal">◆ Pourquoi nous choisir</div>
+          <h2 class="section-title reveal">Ensemble,<br>tout devient<br>possible.</h2>
+          <div class="why-list">
+            <div class="why-item reveal">
+              <div class="why-dot">🔐</div>
+              <div class="why-text">
+                <h4>Sécurité & Confiance</h4>
+                <p>Chaque échange est sécurisé. Votre confiance est notre priorité absolue.</p>
+              </div>
+            </div>
+            <div class="why-item reveal" style="transition-delay:0.1s">
+              <div class="why-dot">⚡</div>
+              <div class="why-text">
+                <h4>Rapidité d'exécution</h4>
+                <p>Des solutions livrées rapidement parce que votre temps a de la valeur.</p>
+              </div>
+            </div>
+            <div class="why-item reveal" style="transition-delay:0.2s">
+              <div class="why-dot">🌍</div>
+              <div class="why-text">
+                <h4>Adapté au Burundi</h4>
+                <p>Nous connaissons le contexte local. Nos solutions sont pensées pour vous.</p>
+              </div>
+            </div>
+            <div class="why-item reveal" style="transition-delay:0.3s">
+              <div class="why-dot">🤝</div>
+              <div class="why-text">
+                <h4>Accompagnement continu</h4>
+                <p>Nous sommes là après la livraison. Un suivi personnalisé et humain.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.2s">
+          <div class="stats-block">
+            <div class="stat">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Fiable</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">24h</div>
+              <div class="stat-label">Réponse rapide</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Services offerts</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">BI</div>
+              <div class="stat-label">Basé au Burundi</div>
+            </div>
+            <div class="stat-motto">
+              <p>ENSEMBLE — Tout devient possible.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CONTACT ───────────────────────────────── -->
+  <div id="contact" style="background: var(--white);">
+    <div class="section">
+      <div class="section-header reveal" style="text-align:center; max-width: 100%">
+        <div class="section-label" style="text-align:center">◆ Contact</div>
+        <h2 class="section-title" style="text-align:center">Parlons de votre besoin</h2>
+        <p class="section-desc" style="max-width: 420px; margin: 0 auto; text-align:center">Contactez-nous directement. Nous répondons rapidement.</p>
+      </div>
+      <div class="contact-grid">
+        <a href="tel:+25761105606" class="contact-card reveal">
+          <div class="contact-icon whatsapp">📱</div>
+          <div>
+            <div class="contact-label">WhatsApp / Tél</div>
+            <div class="contact-value">+257 61 105 606</div>
+          </div>
+        </a>
+        <a href="mailto:niclaude.infos@gmail.com" class="contact-card reveal" style="transition-delay:0.1s">
+          <div class="contact-icon email">✉️</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">niclaude.infos@gmail.com</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── FOOTER ────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">WE <span>CONNECT</span></div>
+      <div class="footer-info">WE CONNECT © 2025 — Burundi</div>
+      <a href="mailto:niclaude.infos@gmail.com" class="footer-email">niclaude.infos@gmail.com</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Mobile nav toggle (simple)
+    function toggleMenu(btn) {
+      const links = document.querySelector('.nav-links');
+      const open = links.style.display === 'flex';
+      links.style.cssText = open
+        ? ''
+        : 'display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--dark-navy);padding:1rem 2rem 1.5rem;gap:1.25rem;border-bottom:1px solid rgba(77,175,130,0.2)';
+    }
+  </script>
+</body>
+</html>
